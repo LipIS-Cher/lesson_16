@@ -8,12 +8,18 @@ public class Bus extends Transport {
 
     public String numberOfSits;
 
-    public Bus(String brand, String model, String year, String country, String color, String maxSpeed, String institution, String nameDriver, String numberOfSits) {
-        super(brand, model, year, country, color, maxSpeed);
+    public Bus(String brand, String model, String year, String country, String color, String maxSpeed, String institution, String nameDriver, String numberOfSits, float fuelPerc) {
+        super(brand, model, year, country, color, maxSpeed, fuelPerc);
 
         setInstitution(institution);
         setNameDriver(nameDriver);
         setNumberOfSits(numberOfSits);
+    }
+
+    public void refill(){
+        System.out.println("Тип топлива - бензин");
+        setFuelPerc(100.00f);
+        System.out.println("Количество топлива - " + getFuelPerc() + "%");
     }
 
     public String getInstitution() {
@@ -47,6 +53,6 @@ public class Bus extends Transport {
     }
 
     public void gettingInformation(){
-        System.out.println("Марка - " + getBrand() + ", модель - " + getModel() + ", год выпуска - " + getYear() + "г., страна производителя - " + getCountry() + ", цвет - " + getColor() + ", максимальная скорость - " + getMaxSpeed() + "км/ч, предназначен для " + getInstitution() + ", водитель - " + getNameDriver() + ", количество мест - " + getNumberOfSits() + ".");
+        System.out.println("Марка - " + getBrand() + ", модель - " + getModel() + ", год выпуска - " + getYear() + "г., страна производителя - " + getCountry() + ", цвет - " + getColor() + ", максимальная скорость - " + getMaxSpeed() + "км/ч, предназначен для " + getInstitution() + ", водитель - " + getNameDriver() + ", количество мест - " + getNumberOfSits() + ", уровень топлива - " + getFuelPerc() + "%.");
     }
 }

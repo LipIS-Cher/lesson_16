@@ -1,13 +1,14 @@
 package Object;
 
-public class Car extends Transport {
+public class Train extends Transport{
 
-    public Car(String brand, String model, String year, String country, String color, String maxSpeed, float fuelPerc) {
+    public Train(String brand, String model, String year, String country, String color, String maxSpeed, float fuelPerc) {
         super(brand, model, year, country, color, maxSpeed, fuelPerc);
     }
 
+    @Override
     public void refill(){
-        System.out.println("Тип топлива - бензин");
+        System.out.println("Тип топлива - дизель");
         setFuelPerc(100.00f);
         System.out.println("Количество топлива - " + getFuelPerc() + "%");
     }

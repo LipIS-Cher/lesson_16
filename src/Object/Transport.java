@@ -1,6 +1,6 @@
 package Object;
 
-public class Transport {
+public abstract class Transport {
     final String brand;
 
     final String model;
@@ -13,7 +13,9 @@ public class Transport {
 
     public String maxSpeed;
 
-    public Transport(String brand, String model, String year, String country, String color, String maxSpeed) {
+    protected float fuelPerc;
+
+    public Transport(String brand, String model, String year, String country, String color, String maxSpeed, float fuelPerc) {
         if (brand == null){
             this.brand = "default";
         } else {
@@ -44,8 +46,14 @@ public class Transport {
         } else {
             this.maxSpeed = maxSpeed;
         }
+        if (fuelPerc < 0.00f || fuelPerc > 100.00f){
+            this.fuelPerc = 0.00f;
+        } else {
+            this.fuelPerc = fuelPerc;
+        }
     }
 
+    public abstract void refill();
     public String getBrand() {
         return brand;
     }
@@ -82,12 +90,20 @@ public class Transport {
         }
     }
 
+    public float getFuelPerc() {
+        return fuelPerc;
+    }
+
+    public void setFuelPerc(float fuelPerc) {
+        this.fuelPerc = fuelPerc;
+    }
+
     @Override
     public String toString() {
-        return brand + model + year + country + color + maxSpeed;
+        return brand + model + year + country + color + maxSpeed + fuelPerc;
     }
 
     public void gettingInformation(){
-        System.out.println("Марка - " + getBrand() + ", модель - " + getModel() + ", год выпуска - " + getYear() + "г., страна производителя - " + getCountry() + ", цвет - " + getColor() + ", максимальная скорость - " + getMaxSpeed() + "км/ч.");
+        System.out.println("Марка - " + getBrand() + ", модель - " + getModel() + ", год выпуска - " + getYear() + "г., страна производителя - " + getCountry() + ", цвет - " + getColor() + ", максимальная скорость - " + getMaxSpeed() + "км/ч, уровень топлива - " + getFuelPerc() + "%.");
     }
 }
